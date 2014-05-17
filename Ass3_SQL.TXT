@@ -403,7 +403,10 @@ INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES 
 
 prompt --------------------------------------------------------------
 prompt QUERY 1
---XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+
+SELECT id as "Customer No", name as "Name", address as "Address" FROM CUSTOMER
+Order by id;
+
 prompt --------------------------------------------------------------
 prompt QUERY 2
 --XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
