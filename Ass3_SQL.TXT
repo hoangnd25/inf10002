@@ -409,16 +409,40 @@ Order by id;
 
 prompt --------------------------------------------------------------
 prompt QUERY 2
---XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+
+select a.adv_code as "Adventure code", a.tour_date as "Tour date",
+ s.firstname||' '||s.lastname As "Staff name" from staffallocation a
+left join staff s on a.staffid = s.staffid
+order by a.adv_code,a.tour_date,"Staff name";
+
 prompt --------------------------------------------------------------
 prompt QUERY 3
---XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+
+select b.adv_code as "Adventure code",b.tour_date as "Tour date",
+c.id as "Customer No",c.name as "Customer name" from booking b 
+left join customer c on c.id = b.customer_id
+order by b.adv_code,b.tour_date,c.id;
+
 prompt --------------------------------------------------------------
 prompt QUERY 4
---XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+
+select ta.adv_code as "Adventure code", ta.tour_date as "Tour date", 
+a.act_code as "Activity code", a.description as "Activity description"
+from tourActivity ta 
+left join activity a on a.act_code = ta.act_code
+order by ta.adv_code,ta.tour_date,a.act_code;
+
 prompt --------------------------------------------------------------
 prompt QUERY 5
---XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+
+select ap.adv_code as "Adventure code",ap.tour_date as "Tour date",
+c.id as "Customer No",c.name as "Customer name",
+ap.act_code as "Activity code",a.description as "Activity description" 
+from activityPreference ap
+left join customer c on ap.customer_id = c.id
+left join activity a on a.act_code = ap.act_code
+order by ap.adv_code,ap.tour_date,ap.customer_id,ap.act_code;
+
 prompt --------------------------------------------------------------
 
 
