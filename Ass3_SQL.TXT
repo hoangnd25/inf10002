@@ -461,7 +461,8 @@ prompt QUERY 9
 prompt --------------------------------------------------------------
 prompt QUERY 10
 
-select * from customer c
+select c.customer_id as "Customer No", c.name as "Customer name",
+b.adv_code as "Adventure code", b.tour_date as "Tour date" from customer c
 inner join brochureRequest r on r.customer_id = c.customer_id
 inner join booking b on b.customer_id = r.customer_id
 where r.adv_code = b.adv_code
