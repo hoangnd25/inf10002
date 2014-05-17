@@ -227,31 +227,31 @@ INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('GR1', 
 
 -- Customer
 
-INSERT INTO CUSTOMER (id,name,address) VALUES
+INSERT INTO CUSTOMER (customer_id,name,address) VALUES
 (1145,'Rose Tyler','12 Glenferrie Road Malvern');
 
-INSERT INTO CUSTOMER (id,name,address) VALUES
+INSERT INTO CUSTOMER (customer_id,name,address) VALUES
 (1444,'Mickey Smith','7 Green Ave, Hawthorn');
 
-INSERT INTO CUSTOMER (id,name,address) VALUES
+INSERT INTO CUSTOMER (customer_id,name,address) VALUES
 (1805,'Rory Darvill','2 Red St Richmond');
 
-INSERT INTO CUSTOMER (id,name,address) VALUES
+INSERT INTO CUSTOMER (customer_id,name,address) VALUES
 (1274,'Martha Jones','1 John St, Kew');
 
-INSERT INTO CUSTOMER (id,name,address) VALUES
+INSERT INTO CUSTOMER (customer_id,name,address) VALUES
 (1333,'Amy Pond','2 Bell St Dingley');
 
-INSERT INTO CUSTOMER (id,name,address) VALUES
+INSERT INTO CUSTOMER (customer_id,name,address) VALUES
 (1810,'Wilfred Mott','7 Oak Rd Hawthorn');
 
-INSERT INTO CUSTOMER (id,name,address) VALUES
+INSERT INTO CUSTOMER (customer_id,name,address) VALUES
 (1334,'Jack Harkness','2 Bell St Dingley');
 
-INSERT INTO CUSTOMER (id,name,address) VALUES
+INSERT INTO CUSTOMER (customer_id,name,address) VALUES
 (1299,'Harold Saxon','4 Hill Ave Kew');
 
-INSERT INTO CUSTOMER (id,name,address) VALUES
+INSERT INTO CUSTOMER (customer_id,name,address) VALUES
 (521,'Donna Noble','8 Dale St, Kew');
 
 -- Brochure request
@@ -460,6 +460,12 @@ prompt QUERY 9
 --XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
 prompt --------------------------------------------------------------
 prompt QUERY 10
---XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+
+select * from customer c
+inner join brochureRequest r on r.customer_id = c.customer_id
+inner join booking b on b.customer_id = r.customer_id
+where r.adv_code = b.adv_code
+;
+
 prompt --------------------------------------------------------------
 prompt END OF OUTPUT SECTION
