@@ -358,9 +358,48 @@ INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
 prompt --------------------------------------------------------------
 prompt Task 4.1
 prompt TEST CONSTRAINTS HERE WITH STATEMENTS THAT MUST FAIL
---XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
---XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
 
+INSERT INTO ADVENTURE (adv_code, duration, description, fee) VALUES ('GR1', 2, 'Ballarat Adventure', 470);
+
+INSERT INTO STAFF (staffid, firstname, lastname) VALUES (101, 'Donald', 'Duck');
+
+INSERT INTO SKILLS (skill) VALUES ('Cooking');
+
+INSERT INTO ROLES (role) VALUES ('Leader');
+
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (102, 'Cooking');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (101, 'Soccer');
+
+INSERT INTO ACTIVITY (act_code, description) VALUES ('S1', 'Eating');
+
+INSERT INTO TOUR (adv_code, tour_date) VALUES ('GS2', '17-SEP-13');
+
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('AS1', 'A4', '17-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('YV2', 'S4', '17-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('YV2', 'A4', '16-SEP-13');
+
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('YV2', '17-SEP-13', 101, 'Member');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('GS2', '17-SEP-13', 101, 'Leader');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('YV2', '16-SEP-13', 101, 'Leader');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('YV2', '16-SEP-13', 102, 'Leader');
+
+INSERT INTO CUSTOMER (id,name,address) VALUES (1145,'Brown Sugar','12 Glenferrie Road Malvern');
+
+INSERT INTO BROCHUREREQUEST (customer_id,adv_code,request_date,sent_date) VALUES (1146,'YV2','16-JUL-13','18-JUL-13');
+INSERT INTO BROCHUREREQUEST (customer_id,adv_code,request_date,sent_date) VALUES (1274,'GS2','16-JUL-13','18-JUL-13');
+
+INSERT INTO BOOKING (customer_id,adv_code,tour_date) VALUES (1146,'GR1','25-SEP-13');
+INSERT INTO BOOKING (customer_id,adv_code,tour_date) VALUES (1145,'GR9','25-SEP-13');
+INSERT INTO BOOKING (customer_id,adv_code,tour_date) VALUES (1145,'GR1','20-SEP-13');
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES (1146,'GR1','25-SEP-13','S2');
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES (1145,'GT1','25-SEP-13','S2');
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES (1145,'GR1','20-SEP-13','S2');
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES (1145,'GR1','25-SEP-13','A4');
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES (1146,'GR1','25-SEP-13',580,'01-SEP-13');
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES (1145,'TO1','25-SEP-13',580,'01-SEP-13');
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES (1145,'GR1','15-SEP-13',580,'01-SEP-13');
 
 prompt --------------------------------------------------------------
 prompt QUERY 1
