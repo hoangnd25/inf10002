@@ -34,6 +34,7 @@ CREATE TABLE ADVENTURE(
 	adv_code VARCHAR2(4),
 	duration NUMBER(3),
 	description VARCHAR2(100),
+	fee NUMBER(5),
 	PRIMARY KEY (adv_code)
 );
 
@@ -145,8 +146,6 @@ customer_id number(4)
 prompt --------------------------------------------------------------
 prompt Task 3.3
 prompt INSERT VALID DATA
---XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
---XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
 
 
 prompt --------------------------------------------------------------
