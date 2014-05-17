@@ -139,7 +139,6 @@ customer_id number(4)
 ,adv_code varchar2(4)
 ,payment_date date
 ,amount number(4)
-,primary key(customer_id, tour_date, adv_code)
 ,foreign key(tour_date,adv_code,customer_id) references booking (tour_date,adv_code,customer_id)
 );
 
@@ -147,6 +146,214 @@ prompt --------------------------------------------------------------
 prompt Task 3.3
 prompt INSERT VALID DATA
 
+INSERT INTO ADVENTURE (adv_code, duration, description, fee) VALUES ('GR1', 3, 'Great Ocean Rd Motel Adventure', 580);
+INSERT INTO ADVENTURE (adv_code, duration, description, fee) VALUES ('GR4', 7, 'Great Ocean Rd Camping Adventure', NULL);
+INSERT INTO ADVENTURE (adv_code, duration, description, fee) VALUES ('YV2', 2, 'Yarra Valley Winery Getaway', 195);
+INSERT INTO ADVENTURE (adv_code, duration, description, fee) VALUES ('MRG1', 5, 'Murray River Golf Getaway', 695);
+
+INSERT INTO STAFF (staffid, firstname, lastname) VALUES (101, 'Buffy', 'Summers');
+INSERT INTO STAFF (staffid, firstname, lastname) VALUES (125, 'Xander', 'Harris');
+INSERT INTO STAFF (staffid, firstname, lastname) VALUES (174, 'Tara', 'Maclay');
+INSERT INTO STAFF (staffid, firstname, lastname) VALUES (213, 'Rupert', 'Giles');
+INSERT INTO STAFF (staffid, firstname, lastname) VALUES (333, 'Riley', 'Finn');
+INSERT INTO STAFF (staffid, firstname, lastname) VALUES (351, 'Cordilia', 'Chase');
+INSERT INTO STAFF (staffid, firstname, lastname) VALUES (394, 'Jonathan', 'Levinson');
+INSERT INTO STAFF (staffid, firstname, lastname) VALUES (400, 'Willow', 'Rosenberg');
+
+INSERT INTO SKILLS (skill) VALUES ('Cooking');
+INSERT INTO SKILLS (skill) VALUES ('Bus Driver');
+INSERT INTO SKILLS (skill) VALUES ('First Aid');
+INSERT INTO SKILLS (skill) VALUES ('Horse Riding');
+INSERT INTO SKILLS (skill) VALUES ('Surfing');
+INSERT INTO SKILLS (skill) VALUES ('Golf');
+
+INSERT INTO ROLES (role) VALUES ('Leader');
+INSERT INTO ROLES (role) VALUES ('Tour Assistant');
+
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (101, 'Cooking');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (101, 'Bus Driver');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (101, 'First Aid');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (125, 'Horse Riding');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (125, 'Cooking');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (125, 'First Aid');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (174, 'Bus Driver');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (174, 'First Aid');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (213, 'First Aid');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (213, 'Surfing');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (333, 'Golf');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (333, 'Bus Driver');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (351, 'Golf');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (351, 'Horse Riding');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (394, 'First Aid');
+INSERT INTO STAFFSKILLS (staffid, skill) VALUES (400, 'Bus Driver');
+
+INSERT INTO ACTIVITY (act_code, description) VALUES ('S1', 'Shopping');
+INSERT INTO ACTIVITY (act_code, description) VALUES ('S2', 'Surfing');
+INSERT INTO ACTIVITY (act_code, description) VALUES ('G1', 'Golf Lessons');
+INSERT INTO ACTIVITY (act_code, description) VALUES ('M1', 'Movies');
+INSERT INTO ACTIVITY (act_code, description) VALUES ('P1', 'Pottery');
+INSERT INTO ACTIVITY (act_code, description) VALUES ('A4', 'Art Tour');
+INSERT INTO ACTIVITY (act_code, description) VALUES ('R1', 'Rock Climbing');
+INSERT INTO ACTIVITY (act_code, description) VALUES ('T2', 'Toga Party');
+
+INSERT INTO TOUR (adv_code, tour_date) VALUES ('YV2', '17-SEP-13');
+INSERT INTO TOUR (adv_code, tour_date) VALUES ('MRG1', '18-SEP-13');
+INSERT INTO TOUR (adv_code, tour_date) VALUES ('GR1', '18-SEP-13');
+INSERT INTO TOUR (adv_code, tour_date) VALUES ('GR1', '25-SEP-13');
+
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('YV2', 'A4', '17-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('YV2', 'P1', '17-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('YV2', 'S1', '17-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('MRG1', 'M1', '18-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('MRG1', 'P1', '18-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('MRG1', 'G1', '18-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('GR1', 'S1', '18-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('GR1', 'S2', '18-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('GR1', 'S1', '25-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('GR1', 'S2', '25-SEP-13');
+INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('GR1', 'G1', '25-SEP-13');
+
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('YV2', '17-SEP-13', 101, 'Leader');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('YV2', '17-SEP-13', 125, 'Tour Assistant');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('YV2', '17-SEP-13', 174, 'Tour Assistant');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('MRG1', '18-SEP-13', 351, 'Leader');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('MRG1', '18-SEP-13', 333, 'Tour Assistant');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('GR1', '18-SEP-13', 400, 'Leader');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('GR1', '18-SEP-13', 394, 'Tour Assistant');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('GR1', '18-SEP-13', 213, 'Tour Assistant');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('GR1', '25-SEP-13', 213, 'Leader');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('GR1', '25-SEP-13', 125, 'Tour Assistant');
+INSERT INTO STAFFALLOCATION (adv_code, tour_date, staffid, role) VALUES ('GR1', '25-SEP-13', 351, 'Tour Assistant');
+
+-- Customer
+
+INSERT INTO CUSTOMER (id,name,address) VALUES
+(1145,'Rose Tyler','12 Glenferrie Road Malvern');
+
+INSERT INTO CUSTOMER (id,name,address) VALUES
+(1444,'Mickey Smith','7 Green Ave, Hawthorn');
+
+INSERT INTO CUSTOMER (id,name,address) VALUES
+(1805,'Rory Darvill','2 Red St Richmond');
+
+INSERT INTO CUSTOMER (id,name,address) VALUES
+(1274,'Martha Jones','1 John St, Kew');
+
+INSERT INTO CUSTOMER (id,name,address) VALUES
+(1333,'Amy Pond','2 Bell St Dingley');
+
+INSERT INTO CUSTOMER (id,name,address) VALUES
+(1810,'Wilfred Mott','7 Oak Rd Hawthorn');
+
+INSERT INTO CUSTOMER (id,name,address) VALUES
+(1334,'Jack Harkness','2 Bell St Dingley');
+
+INSERT INTO CUSTOMER (id,name,address) VALUES
+(1299,'Harold Saxon','4 Hill Ave Kew');
+
+INSERT INTO CUSTOMER (id,name,address) VALUES
+(521,'Donna Noble','8 Dale St, Kew');
+
+-- Brochure request
+
+INSERT INTO BROCHUREREQUEST (customer_id,adv_code,request_date,sent_date) VALUES
+(1274,'YV2','16-JUL-13','18-JUL-13');
+
+INSERT INTO BROCHUREREQUEST (customer_id,adv_code,request_date,sent_date) VALUES
+(1805,'GR1','21-JUL-13','21-JUL-13');
+
+INSERT INTO BROCHUREREQUEST (customer_id,adv_code,request_date,sent_date) VALUES
+(1299,'MRG1','28-JUL-13','01-AUG-13');
+
+INSERT INTO BROCHUREREQUEST (customer_id,adv_code,request_date,sent_date) VALUES
+(1810,'GR4','07-AUG-13','07-AUG-13');
+
+-- Booking
+
+INSERT INTO BOOKING (customer_id,adv_code,tour_date) VALUES
+(1145,'GR1','25-SEP-13');
+
+INSERT INTO BOOKING (customer_id,adv_code,tour_date) VALUES
+(1444,'YV2','17-SEP-13');
+
+INSERT INTO BOOKING (customer_id,adv_code,tour_date) VALUES
+(1274,'YV2','17-SEP-13');
+
+INSERT INTO BOOKING (customer_id,adv_code,tour_date) VALUES
+(1333,'GR1','18-SEP-13');
+
+INSERT INTO BOOKING (customer_id,adv_code,tour_date) VALUES
+(1334,'GR1','18-SEP-13');
+
+INSERT INTO BOOKING (customer_id,adv_code,tour_date) VALUES
+(1299,'MRG1','18-SEP-13');
+
+INSERT INTO BOOKING (customer_id,adv_code,tour_date) VALUES
+(521,'MRG1','18-SEP-13');
+
+-- Activity preference
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES
+(1145,'GR1','25-SEP-13','S2');
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES
+(1444,'YV2','17-SEP-13','S1');
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES
+(1444,'YV2','17-SEP-13','P1');
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES
+(1274,'YV2','17-SEP-13','P1');
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES
+(1274,'YV2','17-SEP-13','A4');
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES
+(1333,'GR1','18-SEP-13','S2');
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES
+(1334,'GR1','18-SEP-13','S2');
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES
+(1334,'GR1','18-SEP-13','S1');
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES
+(1299,'MRG1','18-SEP-13','G1');
+
+INSERT INTO ACTIVITYPREFERENCE (customer_id,adv_code,tour_date,act_code) VALUES
+(521,'MRG1','18-SEP-13','G1');
+
+-- Payment
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
+(1145,'GR1','25-SEP-13',580,'01-SEP-13');
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
+(1444,'YV2','17-SEP-13',100,'03-AUG-13');
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
+(1444,'YV2','17-SEP-13',95,'28-AUG-12');
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
+(1274,'YV2','17-SEP-13',195,'20-AUG-13');
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
+(1333,'GR1','18-SEP-13',580,'10-AUG-13');
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
+(1299,'MRG1','18-SEP-13',695,'15-JUL-13');
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
+(1334,'GR1','18-SEP-13',580,'14-AUG-13');
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
+(521,'MRG1','18-SEP-13',250,'15-JUN-13');
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
+(521,'MRG1','18-SEP-13',250,'14-JUL-13');
+
+INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES
+(521,'MRG1','18-SEP-13',195,'16-AUG-13');
 
 prompt --------------------------------------------------------------
 prompt Task 4.1
