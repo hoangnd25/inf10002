@@ -1,0 +1,68 @@
+--Modify this script so that it meets the requirements of Assignment 3 
+--When done, complete these tasks
+--1. Save this file so that it can be submitted via ESP
+--2. Execute the contents of this file in ISQL Jr
+--3. Copy and paste the output from ISQL Jr into a file as described in the assignment document and submit via ESP
+prompt START OF OUTPUT SECTION
+prompt Student ID:    XXXXXXXXXXX
+prompt Student Name:  XXXXXXXXXXXXXX    (copy, paste and modify these two lines for each student in the group)
+
+prompt --------------------------------------------------------------
+prompt Task 3.1
+prompt DROP ALL TABLES
+--XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
+--XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt Task 3.2
+prompt CREATE ALL TABLES
+--XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
+--XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt Task 3.3
+prompt INSERT VALID DATA
+--XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
+--XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
+
+
+prompt --------------------------------------------------------------
+prompt Task 4.1
+prompt TEST CONSTRAINTS HERE WITH STATEMENTS THAT MUST FAIL
+--XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
+--XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
+
+
+prompt --------------------------------------------------------------
+prompt QUERY 1
+--XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt QUERY 2
+--XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt QUERY 3
+--XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt QUERY 4
+--XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt QUERY 5
+--XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+prompt --------------------------------------------------------------
+
+
+prompt --------------------------------------------------------------
+prompt QUERY 6
+--XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt QUERY 7
+--XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt QUERY 8
+--XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt QUERY 9
+--XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt QUERY 10
+--XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+prompt --------------------------------------------------------------
+prompt END OF OUTPUT SECTION
