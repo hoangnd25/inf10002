@@ -61,11 +61,11 @@ CREATE TABLE TOURACTIVITY(
 );
 
 CREATE TABLE CUSTOMER(
-	id NUMBER(4),
+	customer_id NUMBER(4),
 	name VARCHAR(60),
 	address VARCHAR(120),
 	phone VARCHAR(10),
-	PRIMARY KEY (id)
+	PRIMARY KEY (customer_id)
 );
 
 CREATE TABLE BROCHUREREQUEST(
@@ -404,8 +404,8 @@ INSERT INTO PAYMENT (customer_id,adv_code,tour_date,amount,payment_date) VALUES 
 prompt --------------------------------------------------------------
 prompt QUERY 1
 
-SELECT id as "Customer No", name as "Name", address as "Address" FROM CUSTOMER
-Order by id;
+SELECT customer_id as "Customer No", name as "Name", address as "Address" FROM CUSTOMER
+Order by customer_id;
 
 prompt --------------------------------------------------------------
 prompt QUERY 2
@@ -419,9 +419,9 @@ prompt --------------------------------------------------------------
 prompt QUERY 3
 
 select b.adv_code as "Adventure code",b.tour_date as "Tour date",
-c.id as "Customer No",c.name as "Customer name" from booking b 
-left join customer c on c.id = b.customer_id
-order by b.adv_code,b.tour_date,c.id;
+c.customer_id as "Customer No",c.name as "Customer name" from booking b 
+left join customer c on c.customer_id = b.customer_id
+order by b.adv_code,b.tour_date,c.customer_id;
 
 prompt --------------------------------------------------------------
 prompt QUERY 4
@@ -436,10 +436,10 @@ prompt --------------------------------------------------------------
 prompt QUERY 5
 
 select ap.adv_code as "Adventure code",ap.tour_date as "Tour date",
-c.id as "Customer No",c.name as "Customer name",
+c.customer_id as "Customer No",c.name as "Customer name",
 ap.act_code as "Activity code",a.description as "Activity description" 
 from activityPreference ap
-left join customer c on ap.customer_id = c.id
+left join customer c on ap.customer_id = c.customer_id
 left join activity a on a.act_code = ap.act_code
 order by ap.adv_code,ap.tour_date,ap.customer_id,ap.act_code;
 
