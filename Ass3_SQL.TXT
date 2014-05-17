@@ -10,13 +10,135 @@ prompt Student Name:  XXXXXXXXXXXXXX    (copy, paste and modify these two lines 
 prompt --------------------------------------------------------------
 prompt Task 3.1
 prompt DROP ALL TABLES
---XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
---XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
+
+DROP TABLE ACTIVITY CASCADE CONSTRAINT;
+DROP TABLE TOURACTIVITY CASCADE CONSTRAINT;
+DROP TABLE TOUR CASCADE CONSTRAINT;
+DROP TABLE ADVENTURE;
+DROP TABLE BROCHUREREQUEST;
+DROP TABLE CUSTOMER CASCADE CONSTRAINT;
+DROP TABLE ACTIVITYPREFERENCE;
+DROP TABLE BOOKING;
+DROP TABLE SKILLS CASCADE CONSTRAINT;
+DROP TABLE STAFF CASCADE CONSTRAINT;
+DROP TABLE ROLES CASCADE CONSTRAINT;
+DROP TABLE STAFFSKILLS;
+DROP TABLE STAFFALLOCATION;
+
 prompt --------------------------------------------------------------
 prompt Task 3.2
 prompt CREATE ALL TABLES
---XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
---XXXXXXXXXXXXXXXX (Replace these lines with your SQL statements here)
+
+CREATE TABLE ADVENTURE(
+	adv_code VARCHAR2(4),
+	duration NUMBER(3),
+	description VARCHAR2(100),
+	PRIMARY KEY (adv_code)
+);
+
+CREATE TABLE ACTIVITY(
+	act_code VARCHAR2(3),
+	description VARCHAR2(100),
+	PRIMARY KEY (act_code)
+);
+
+CREATE TABLE TOUR(
+	adv_code VARCHAR2(4),
+	tour_date DATE,
+	PRIMARY KEY (adv_code,tour_date),
+	FOREIGN KEY (adv_code) REFERENCES ADVENTURE
+);
+
+CREATE TABLE TOURACTIVITY(
+	adv_code VARCHAR2(4),
+	act_code VARCHAR2(3),
+	tour_date DATE,
+	PRIMARY KEY (tour_date,adv_code,act_code),
+	FOREIGN KEY (act_code) REFERENCES ACTIVITY,
+	FOREIGN KEY (adv_code,tour_date) REFERENCES TOUR
+);
+
+CREATE TABLE CUSTOMER(
+	id NUMBER(4),
+	name VARCHAR(60),
+	address VARCHAR(120),
+	phone VARCHAR(10),
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE BROCHUREREQUEST(
+	customer_id NUMBER(4),
+	request_date DATE,
+	sent_date DATE,
+	PRIMARY KEY (customer_id),
+	FOREIGN KEY (customer_id) REFERENCES CUSTOMER
+);
+
+CREATE TABLE ACTIVITYPREFERENCE(
+	customer_id NUMBER(4),
+	adv_code VARCHAR2(4),
+	act_code VARCHAR2(3),
+	tour_date DATE,
+	PRIMARY KEY (customer_id,act_code,adv_code,tour_date),
+	FOREIGN KEY (customer_id) REFERENCES CUSTOMER,
+	FOREIGN KEY (adv_code,act_code,tour_date) REFERENCES TOURACTIVITY (adv_code,act_code,tour_date)
+);
+
+CREATE TABLE BOOKING(
+	customer_id NUMBER(4),
+	adv_code VARCHAR2(4),
+	tour_date DATE,
+	PRIMARY KEY (customer_id,adv_code,tour_date),
+	FOREIGN KEY (customer_id) REFERENCES CUSTOMER,
+	FOREIGN KEY (adv_code,tour_date) REFERENCES TOUR (adv_code,tour_date)
+);
+
+create table skills(
+skill varchar2(20)
+,primary key (skill)
+);
+
+create table staff(
+staffid number(3)
+,firstname varchar2(20)
+,lastname varchar2(20)
+,primary key (staffid)
+);
+
+create table roles(
+role varchar2(20)
+,primary key (role)
+);
+
+create table staffskills(
+staffid number(3)
+,skill varchar2(20)
+,primary key(staffid, skill)
+,foreign key(staffid) references staff
+,foreign key(skill) references skills
+);
+
+create table staffallocation(
+adv_code varchar2(4)
+,tour_date date
+,staffid number(3)
+,role varchar2(20)
+,primary key(adv_code, tour_date, staffid, role)
+,foreign key(adv_code,tour_date) references tour
+,foreign key(staffid) references staff
+,foreign key(role) references roles
+);
+
+create table payment(
+customer_id number(4)
+,tour_date date
+,adv_code varchar2(4)
+,payment_date date
+,amount number(4)
+,primary key(customer_id, tour_date, adv_code)
+,foreign key(tour_date,adv_code,customer_id) references booking (tour_date,adv_code,customer_id)
+);
+
 prompt --------------------------------------------------------------
 prompt Task 3.3
 prompt INSERT VALID DATA
