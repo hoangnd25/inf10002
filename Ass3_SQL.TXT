@@ -71,8 +71,10 @@ CREATE TABLE BROCHUREREQUEST(
 	customer_id NUMBER(4),
 	request_date DATE,
 	sent_date DATE,
-	PRIMARY KEY (customer_id),
-	FOREIGN KEY (customer_id) REFERENCES CUSTOMER
+	adv_code VARCHAR2(4),
+	PRIMARY KEY (customer_id,adv_code),
+	FOREIGN KEY (customer_id) REFERENCES CUSTOMER,	
+	FOREIGN KEY (adv_code) REFERENCES ADVENTURE
 );
 
 CREATE TABLE ACTIVITYPREFERENCE(
