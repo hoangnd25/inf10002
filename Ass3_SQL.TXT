@@ -448,16 +448,42 @@ prompt --------------------------------------------------------------
 
 prompt --------------------------------------------------------------
 prompt QUERY 6
---XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+
+select c.customer_id as "Customer No", c.name as "Customer name", 
+sum(p.amount) as "Total payments" from customer c
+left join booking b on b.customer_id = c.customer_id
+left join payment p on p.adv_code = b.adv_code and b.tour_date = p.tour_date
+group by c.customer_id, c.name
+order by c.customer_id;
+
 prompt --------------------------------------------------------------
 prompt QUERY 7
---XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+
+select t.adv_code as "Tour code", sum(p.amount) as "Total payments"
+from Tour t
+left join booking b on b.adv_code = t.adv_code and t.tour_date = b.tour_date
+left join payment p on p.adv_code = b.adv_code and b.tour_date = p.tour_date
+group by t.adv_code
+order by t.adv_code;
+
 prompt --------------------------------------------------------------
 prompt QUERY 8
---XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+
+select a.act_code as "Activity code", a.description as "Activity description", count(p.customer_id) as "Total selected"
+from tourActivity ta 
+right outer join activity a on ta.act_code = a.act_code
+left outer join activityPreference p on ta.adv_code = p.adv_code and ta.act_code = p.act_code and ta.tour_date = p.tour_date
+group by a.act_code, a.description
+order by "Total selected";
+
 prompt --------------------------------------------------------------
 prompt QUERY 9
---XXXXXXXXXXXXXXXX (Replace this line with your SQL statements here)
+
+select a.adv_code as "Adventure code", max(t.tour_date) as "Tour date", 
+a.description as "Description", t.fee as "Most recent price"
+from adventure a inner join tour t on t.adv_code = a.adv_code
+group by a.adv_code,a.description,t.fee;
+
 prompt --------------------------------------------------------------
 prompt QUERY 10
 
