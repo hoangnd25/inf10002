@@ -34,7 +34,6 @@ CREATE TABLE ADVENTURE(
 	adv_code VARCHAR2(4),
 	duration NUMBER(3),
 	description VARCHAR2(100),
-	fee NUMBER(5),
 	PRIMARY KEY (adv_code)
 );
 
@@ -47,6 +46,7 @@ CREATE TABLE ACTIVITY(
 CREATE TABLE TOUR(
 	adv_code VARCHAR2(4),
 	tour_date DATE,
+	fee NUMBER(5),
 	PRIMARY KEY (adv_code,tour_date),
 	FOREIGN KEY (adv_code) REFERENCES ADVENTURE
 );
@@ -146,10 +146,10 @@ prompt --------------------------------------------------------------
 prompt Task 3.3
 prompt INSERT VALID DATA
 
-INSERT INTO ADVENTURE (adv_code, duration, description, fee) VALUES ('GR1', 3, 'Great Ocean Rd Motel Adventure', 580);
-INSERT INTO ADVENTURE (adv_code, duration, description, fee) VALUES ('GR4', 7, 'Great Ocean Rd Camping Adventure', NULL);
-INSERT INTO ADVENTURE (adv_code, duration, description, fee) VALUES ('YV2', 2, 'Yarra Valley Winery Getaway', 195);
-INSERT INTO ADVENTURE (adv_code, duration, description, fee) VALUES ('MRG1', 5, 'Murray River Golf Getaway', 695);
+INSERT INTO ADVENTURE (adv_code, duration, description) VALUES ('GR1', 3, 'Great Ocean Rd Motel Adventure');
+INSERT INTO ADVENTURE (adv_code, duration, description) VALUES ('GR4', 7, 'Great Ocean Rd Camping Adventure');
+INSERT INTO ADVENTURE (adv_code, duration, description) VALUES ('YV2', 2, 'Yarra Valley Winery Getaway');
+INSERT INTO ADVENTURE (adv_code, duration, description) VALUES ('MRG1', 5, 'Murray River Golf Getaway');
 
 INSERT INTO STAFF (staffid, firstname, lastname) VALUES (101, 'Buffy', 'Summers');
 INSERT INTO STAFF (staffid, firstname, lastname) VALUES (125, 'Xander', 'Harris');
@@ -196,10 +196,10 @@ INSERT INTO ACTIVITY (act_code, description) VALUES ('A4', 'Art Tour');
 INSERT INTO ACTIVITY (act_code, description) VALUES ('R1', 'Rock Climbing');
 INSERT INTO ACTIVITY (act_code, description) VALUES ('T2', 'Toga Party');
 
-INSERT INTO TOUR (adv_code, tour_date) VALUES ('YV2', '17-SEP-13');
-INSERT INTO TOUR (adv_code, tour_date) VALUES ('MRG1', '18-SEP-13');
-INSERT INTO TOUR (adv_code, tour_date) VALUES ('GR1', '18-SEP-13');
-INSERT INTO TOUR (adv_code, tour_date) VALUES ('GR1', '25-SEP-13');
+INSERT INTO TOUR (adv_code, tour_date, fee) VALUES ('YV2', '17-SEP-13',195);
+INSERT INTO TOUR (adv_code, tour_date, fee) VALUES ('MRG1', '18-SEP-13',695);
+INSERT INTO TOUR (adv_code, tour_date, fee) VALUES ('GR1', '18-SEP-13',580);
+INSERT INTO TOUR (adv_code, tour_date, fee) VALUES ('GR1', '25-SEP-13',580);
 
 INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('YV2', 'A4', '17-SEP-13');
 INSERT INTO TOURACTIVITY (adv_code, act_code, tour_date) VALUES ('YV2', 'P1', '17-SEP-13');
@@ -359,7 +359,7 @@ prompt --------------------------------------------------------------
 prompt Task 4.1
 prompt TEST CONSTRAINTS HERE WITH STATEMENTS THAT MUST FAIL
 
-INSERT INTO ADVENTURE (adv_code, duration, description, fee) VALUES ('GR1', 2, 'Ballarat Adventure', 470);
+INSERT INTO ADVENTURE (adv_code, duration, description) VALUES ('GR1', 2, 'Ballarat Adventure');
 
 INSERT INTO STAFF (staffid, firstname, lastname) VALUES (101, 'Donald', 'Duck');
 
